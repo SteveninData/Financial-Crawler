@@ -1,0 +1,8 @@
+{
+  "name": "tw-institutional-flows",
+  "version": "0.1.0",
+  "description": "Taiwan investment-trust (投信) Top 50 net buy/sell: fetch from HiStock, export to Excel, and write a flow summary",
+  "author": {
+    "name": "SteveninData"
+  }
+}
