@@ -2,6 +2,7 @@ import os
 import sys
 import tempfile
 import unittest
+from datetime import date
 
 HERE = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(HERE, "..", "plugins", "tw-institutional-flows", "skills", "trust-flows", "scripts"))
@@ -16,7 +17,7 @@ class ParseTest(unittest.TestCase):
         with open(FIXTURE, encoding="utf-8") as f:
             self.data = ftf.parse(f.read())
 
-    def test_skips_header_rows(self):
+    def test_skips_header_and_index_rows(self):
         self.assertEqual(len(self.data["buy"]), 2)
         self.assertEqual(len(self.data["sell"]), 1)
 
@@ -31,6 +32,16 @@ class ParseTest(unittest.TestCase):
 
     def test_etf_code_kept_as_string(self):
         self.assertEqual(self.data["buy"][1]["code"], "00878")
+
+    def test_index_row_not_in_sell_list(self):
+        self.assertNotIn("TWOI", [r["code"] for r in self.data["sell"]])
+
+    def test_data_date_from_heading(self):
+        html = "<h3>09-24 Top 50 投信買超排行</h3>"
+        self.assertEqual(ftf.parse_data_date(html, today=date(2026, 9, 28)), "2026-09-24")
+        # A January run showing December data belongs to last year.
+        self.assertEqual(ftf.parse_data_date("12-31 Top 50 投信買超", today=date(2027, 1, 2)), "2026-12-31")
+        self.assertIsNone(ftf.parse_data_date("<html></html>"))
 
     def test_missing_section_raises(self):
         with self.assertRaises(ValueError):

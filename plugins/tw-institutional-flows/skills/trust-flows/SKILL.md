@@ -17,11 +17,11 @@ Run the bundled script from the **user's working directory** (so the workbook an
 python3 <skill-dir>/scripts/fetch_trust_flows.py --xlsx 投信買賣超數據.xlsx --history-dir history
 ```
 
-`--history-dir` saves today's snapshot as `history/<YYYY-MM-DD>.json` (Taipei date) for Step 4. Run after the day's 投信 data is published (after ~15:00 Taipei); if fetching an earlier day's page, pass `--date YYYY-MM-DD`.
+`--history-dir` saves a snapshot as `history/<YYYY-MM-DD>.json` for Step 4, named by the **trading date shown on the page** (`data_date`), not today's date: before the day's data is published, or on holidays, the page still shows the previous trading day. Re-running on the same trading date just overwrites that snapshot. Pass `--date` only if the page date cannot be read.
 
 - Requires `requests`, `beautifulsoup4`, `openpyxl`.
 - If the network blocks histock.tw, ask the user to save the page (`https://histock.tw/stock/three.aspx?s=b`) and run with `--html <file>`.
-- The script prints JSON: `source`, `fetched_at`, `counts`, `buy[]`, `sell[]`. Each row has `code, name, price, change_pct, volume, net`.
+- The script prints JSON: `source`, `data_date`, `fetched_at`, `counts`, `buy[]`, `sell[]`. Each row has `code, name, price, change_pct, volume, net`.
 
 ## Step 2: Sanity-check before analyzing
 
@@ -29,7 +29,7 @@ Stop and tell the user if any check fails; do not analyze partial data silently.
 
 | Check | Expected |
 |---|---|
-| Row counts | ~50 per side (`counts.buy`, `counts.sell`) |
+| Row counts | ~50 per side (`counts.buy`, `counts.sell`); 49 is normal when an index row such as `TWOI 櫃檯指數` was dropped |
 | Codes | Unique within each side, 4–6 digits (+ optional letter) |
 | Numeric fields | `price`, `volume`, `net` are numbers, not strings |
 | Overlap | No code appears on both the buy and sell list |
@@ -41,7 +41,7 @@ If the script raises "page layout may have changed", the CSS selectors in `SECTI
 Write a short summary (Traditional Chinese unless the user writes in English):
 
 1. **Top 5 net buys and top 5 net sells** by `net`, with price and `change_pct`.
-2. **Concentration**: share of total net buying held by the top 5 names.
+2. **Concentration**: share of total net buying (in 張, not value) held by the top 5 names.
 3. **Price confirmation**: which heavy buys also closed up, and which are being bought on down days (possible accumulation).
 4. **ETFs vs single stocks**: codes starting `00` are ETFs; call them out separately.
 5. **Context flags** (mention only when relevant): quarter-end window dressing (季底作帳) in the last weeks of Mar/Jun/Sep/Dec; 投信 tend to favor mid/small caps, so large flows in small names matter more relative to their volume.
@@ -67,4 +67,4 @@ The `net` column is shown as HiStock displays it (normally 張, 1 張 = 1,000 sh
 ## Guardrails
 
 - This is a data summary, not investment advice. Do not issue buy/sell recommendations.
-- Always state `fetched_at` so the reader knows which trading day the data covers.
+- Always state `data_date` (the trading day the data covers), not just `fetched_at`.

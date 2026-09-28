@@ -16,7 +16,7 @@ import json
 import re
 import os
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 
 from bs4 import BeautifulSoup as BS
 
@@ -32,6 +32,9 @@ SECTIONS = {
 }
 
 TAIPEI = timezone(timedelta(hours=8))
+
+# The buy list's heading carries the trading date, e.g. "09-24 Top 50 投信買超排行".
+DATE_RE = re.compile(r"(\d{2})-(\d{2})\s*Top\s*50\s*投信買超")
 
 # TWSE/TPEx codes: 4-6 digits with an optional letter suffix (2330, 00878, 00632R).
 CODE_RE = re.compile(r"^\d{4,6}[A-Z]?$")
@@ -61,7 +64,8 @@ def parse_rows(div):
     rows = []
     for li in div.find_all("li"):
         cells = [span.text.strip() for span in li.find_all("span", {"class": "w58"})]
-        # Skip the header row and any decoration: data rows start with a stock code.
+        # Data rows start with a stock code; this drops header rows and index
+        # rows such as "TWOI 櫃檯指數", whose net figure is on a different scale.
         if len(cells) < len(FIELDS) or not CODE_RE.match(cells[0]):
             continue
         row = dict(zip(FIELDS, cells))
@@ -83,6 +87,27 @@ def parse(html):
             )
         result[side] = parse_rows(div)
     return result
+
+
+def parse_data_date(html, today=None):
+    """Trading date from the page heading as YYYY-MM-DD, or None if not found.
+
+    The heading has no year: assume the current Taipei year, or last year if
+    that would put the date in the future (a January run showing December data).
+    """
+    match = DATE_RE.search(BS(html, "html.parser").get_text(" ", strip=True))
+    if not match:
+        return None
+    today = today or datetime.now(TAIPEI).date()
+    month, day = int(match.group(1)), int(match.group(2))
+    for year in (today.year, today.year - 1):
+        try:
+            candidate = date(year, month, day)
+        except ValueError:  # e.g. 02-29 in a non-leap year
+            continue
+        if candidate <= today:
+            return candidate.isoformat()
+    return None
 
 
 def write_xlsx(data, path):
@@ -110,7 +135,7 @@ def main(argv=None):
     ap.add_argument("--url", default=URL)
     ap.add_argument("--xlsx", help="also write an Excel workbook to this path")
     ap.add_argument("--history-dir", help="also save a snapshot to <dir>/<date>.json for streaks.py")
-    ap.add_argument("--date", help="trading date for the snapshot (YYYY-MM-DD); default: today in Taipei")
+    ap.add_argument("--date", help="trading date for the snapshot (YYYY-MM-DD); default: the date on the page")
     args = ap.parse_args(argv)
 
     if args.html:
@@ -124,6 +149,7 @@ def main(argv=None):
     data = parse(html)
     out = {
         "source": source,
+        "data_date": parse_data_date(html),
         "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "counts": {side: len(rows) for side, rows in data.items()},
         **data,
@@ -132,7 +158,9 @@ def main(argv=None):
         write_xlsx(data, args.xlsx)
         out["xlsx"] = args.xlsx
     if args.history_dir:
-        date = args.date or datetime.now(TAIPEI).date().isoformat()
+        date = args.date or out["data_date"]
+        if date is None:
+            sys.exit("Could not read the trading date from the page; pass --date YYYY-MM-DD.")
         os.makedirs(args.history_dir, exist_ok=True)
         path = os.path.join(args.history_dir, f"{date}.json")
         with open(path, "w", encoding="utf-8") as f:
