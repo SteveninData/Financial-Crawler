@@ -1,6 +1,6 @@
 ---
 name: trust-flows
-description: Fetch and analyze the Taiwan stock market's Top 50 investment-trust (投信) net buy and net sell lists from HiStock, export them to Excel, and write a short flow summary. Use when the user asks about 投信買賣超, 投信買超/賣超, investment-trust or domestic fund flows in Taiwan stocks, or wants the daily 投信 table refreshed.
+description: Fetch, track, and analyze the Taiwan stock market's Top 50 investment-trust (投信) net buy and net sell lists from HiStock, export them to Excel, track consecutive-day streaks, and write a short flow summary. Use when the user asks about 投信買賣超, 投信買超/賣超, investment-trust or domestic fund flows in Taiwan stocks, 連續買超, or wants the daily 投信 table refreshed.
 ---
 
 # Taiwan investment-trust (投信) flows
@@ -11,11 +11,13 @@ Pull the latest Top 50 投信 net buy and net sell lists, save them to a workboo
 
 ## Step 1: Fetch
 
-Run the bundled script from this skill's directory:
+Run the bundled script from the **user's working directory** (so the workbook and `history/` land there, not in the plugin cache), using its path under this skill's directory:
 
 ```bash
-python3 scripts/fetch_trust_flows.py --xlsx 投信買賣超數據.xlsx
+python3 <skill-dir>/scripts/fetch_trust_flows.py --xlsx 投信買賣超數據.xlsx --history-dir history
 ```
+
+`--history-dir` saves today's snapshot as `history/<YYYY-MM-DD>.json` (Taipei date) for Step 4. Run after the day's 投信 data is published (after ~15:00 Taipei); if fetching an earlier day's page, pass `--date YYYY-MM-DD`.
 
 - Requires `requests`, `beautifulsoup4`, `openpyxl`.
 - If the network blocks histock.tw, ask the user to save the page (`https://histock.tw/stock/three.aspx?s=b`) and run with `--html <file>`.
@@ -44,7 +46,19 @@ Write a short summary (Traditional Chinese unless the user writes in English):
 4. **ETFs vs single stocks**: codes starting `00` are ETFs; call them out separately.
 5. **Context flags** (mention only when relevant): quarter-end window dressing (季底作帳) in the last weeks of Mar/Jun/Sep/Dec; 投信 tend to favor mid/small caps, so large flows in small names matter more relative to their volume.
 
-If earlier output files exist in the working directory, compare against them to note names bought or sold on consecutive days.
+## Step 4: Consecutive buying / selling (連續買超 / 賣超)
+
+If `history/` holds two or more snapshots, run:
+
+```bash
+python3 <skill-dir>/scripts/streaks.py history --min-days 3
+```
+
+It returns `buy_streaks` and `sell_streaks` (each with `days`, `latest_net`, `total_net`), plus `gaps`.
+
+- Lead the summary with the longest buy streaks: consecutive 投信 buying is the signal readers care about most.
+- Streaks count **saved snapshots**, not trading days. If `gaps` is non-empty, a run was probably missed; say so and treat streaks spanning the gap as unreliable.
+- With fewer than 2 snapshots, say that streak analysis starts once a second day is saved.
 
 ## Units
 

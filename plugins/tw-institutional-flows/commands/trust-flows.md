@@ -13,13 +13,14 @@ Use the provided path if given; otherwise default to `投信買賣超數據.xlsx
 
 Use `skill: "trust-flows"`:
 
-1. Run `scripts/fetch_trust_flows.py --xlsx <path>`.
+1. Run `scripts/fetch_trust_flows.py --xlsx <path> --history-dir history`.
 2. Run the Step 2 sanity checks from the skill. Stop and report if any fail.
-3. Write the Step 3 summary.
+3. Run Step 4 (`scripts/streaks.py history`) if there are 2+ snapshots.
+4. Write the Step 3 summary, leading with any multi-day streaks.
 
 ## Step 3: Deliver
 
 Reply with:
 - The workbook path
-- The summary (top buys, top sells, concentration, notable flags)
+- The summary (streaks, top buys, top sells, concentration, notable flags)
 - The `fetched_at` timestamp

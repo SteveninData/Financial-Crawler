@@ -9,12 +9,14 @@ Usage:
     python3 fetch_trust_flows.py                       # fetch live, print JSON
     python3 fetch_trust_flows.py --xlsx out.xlsx       # also write Excel
     python3 fetch_trust_flows.py --html saved.html     # parse a saved page
+    python3 fetch_trust_flows.py --history-dir history # also save history/YYYY-MM-DD.json
 """
 import argparse
 import json
 import re
+import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from bs4 import BeautifulSoup as BS
 
@@ -28,6 +30,8 @@ SECTIONS = {
     "buy": "tb-outline outline1",   # 投信買超
     "sell": "tb-outline outline2",  # 投信賣超
 }
+
+TAIPEI = timezone(timedelta(hours=8))
 
 # TWSE/TPEx codes: 4-6 digits with an optional letter suffix (2330, 00878, 00632R).
 CODE_RE = re.compile(r"^\d{4,6}[A-Z]?$")
@@ -105,6 +109,8 @@ def main(argv=None):
     ap.add_argument("--html", help="parse a saved HTML file instead of fetching")
     ap.add_argument("--url", default=URL)
     ap.add_argument("--xlsx", help="also write an Excel workbook to this path")
+    ap.add_argument("--history-dir", help="also save a snapshot to <dir>/<date>.json for streaks.py")
+    ap.add_argument("--date", help="trading date for the snapshot (YYYY-MM-DD); default: today in Taipei")
     args = ap.parse_args(argv)
 
     if args.html:
@@ -125,6 +131,13 @@ def main(argv=None):
     if args.xlsx:
         write_xlsx(data, args.xlsx)
         out["xlsx"] = args.xlsx
+    if args.history_dir:
+        date = args.date or datetime.now(TAIPEI).date().isoformat()
+        os.makedirs(args.history_dir, exist_ok=True)
+        path = os.path.join(args.history_dir, f"{date}.json")
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump({"date": date, **out}, f, ensure_ascii=False, indent=2)
+        out["snapshot"] = path
 
     json.dump(out, sys.stdout, ensure_ascii=False, indent=2)
     print()

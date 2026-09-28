@@ -21,7 +21,8 @@ plugins/tw-institutional-flows/
   commands/trust-flows.md                ← the /trust-flows slash command
   skills/trust-flows/
     SKILL.md                             ← the method: fetch → check → summarize
-    scripts/fetch_trust_flows.py         ← the crawler
+    scripts/fetch_trust_flows.py         ← the crawler (--history-dir saves daily snapshots)
+    scripts/streaks.py                   ← consecutive buy/sell streaks from the snapshots
 tests/                                   ← parser tests on a synthetic HTML fixture
 ```
 
@@ -38,6 +39,8 @@ Then run `/trust-flows`, or ask about 投信買賣超 in plain language.
 ## Run the script directly
 
 ```bash
-python3 plugins/tw-institutional-flows/skills/trust-flows/scripts/fetch_trust_flows.py --xlsx 投信買賣超數據.xlsx
+S=plugins/tw-institutional-flows/skills/trust-flows/scripts
+python3 $S/fetch_trust_flows.py --xlsx 投信買賣超數據.xlsx --history-dir history   # run once per trading day
+python3 $S/streaks.py history --min-days 3                                        # 連續 3 天以上買超/賣超
 python3 -m unittest discover -s tests
 ```

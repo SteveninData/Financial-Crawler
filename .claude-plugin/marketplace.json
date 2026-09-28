@@ -3,6 +3,7 @@
   "owner": {
     "name": "SteveninData"
   },
+  "description": "Taiwan stock market data crawlers packaged as Claude plugins",
   "plugins": [
     {
       "name": "tw-institutional-flows",
