@@ -126,6 +126,7 @@ def write_xlsx(data, path):
         for r, row in enumerate(data[side], start=3):
             for i, field in enumerate(FIELDS):
                 ws.cell(r, offset + i, row[field])
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     wb.save(path)
 
 
