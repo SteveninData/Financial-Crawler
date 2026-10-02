@@ -1,0 +1,15 @@
+{
+  "name": "financial-crawler",
+  "owner": {
+    "name": "SteveninData"
+  },
+  "description": "Taiwan stock market data crawlers packaged as Claude plugins",
+  "plugins": [
+    {
+      "name": "tw-institutional-flows",
+      "displayName": "TW Institutional Flows",
+      "source": "./plugins/tw-institutional-flows",
+      "description": "Taiwan investment-trust (投信) Top 50 net buy/sell: fetch from HiStock, export to Excel, and write a flow summary"
+    }
+  ]
+}
