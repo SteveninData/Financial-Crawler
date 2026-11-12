@@ -1,0 +1,807 @@
+{
+  "date": "2026-11-11",
+  "source": "https://histock.tw/stock/three.aspx?s=b",
+  "data_date": "2026-11-11",
+  "fetched_at": "2026-11-12T06:11:50+00:00",
+  "counts": {
+    "buy": 49,
+    "sell": 50
+  },
+  "buy": [
+    {
+      "code": "1303",
+      "name": "南亞",
+      "price": 293,
+      "change_pct": -6.39,
+      "volume": 148617,
+      "net": 15637
+    },
+    {
+      "code": "2891",
+      "name": "中信金",
+      "price": 75.4,
+      "change_pct": 0.94,
+      "volume": 35380,
+      "net": 14693
+    },
+    {
+      "code": "00981A",
+      "name": "主動統一台股增長",
+      "price": 24.02,
+      "change_pct": -5.17,
+      "volume": 300866,
+      "net": 10700
+    },
+    {
+      "code": "2882",
+      "name": "國泰金",
+      "price": 112,
+      "change_pct": -0.88,
+      "volume": 25398,
+      "net": 7799
+    },
+    {
+      "code": "2881",
+      "name": "富邦金",
+      "price": 159,
+      "change_pct": -0.31,
+      "volume": 20006,
+      "net": 6927
+    },
+    {
+      "code": "0050",
+      "name": "元大台灣50",
+      "price": 100.95,
+      "change_pct": -2.18,
+      "volume": 130666,
+      "net": 4440
+    },
+    {
+      "code": "00631L",
+      "name": "元大台灣50正2",
+      "price": 30.99,
+      "change_pct": -4.73,
+      "volume": 419749,
+      "net": 3762
+    },
+    {
+      "code": "1802",
+      "name": "台玻",
+      "price": 81.7,
+      "change_pct": 6.52,
+      "volume": 483656,
+      "net": 3734
+    },
+    {
+      "code": "1216",
+      "name": "統一",
+      "price": 77.9,
+      "change_pct": 1.43,
+      "volume": 15569,
+      "net": 2507
+    },
+    {
+      "code": "00900",
+      "name": "富邦特選高股息30",
+      "price": 18.54,
+      "change_pct": -0.48,
+      "volume": 4918,
+      "net": 2500
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "price": 2340,
+      "change_pct": -2.3,
+      "volume": 28991,
+      "net": 2385
+    },
+    {
+      "code": "2027",
+      "name": "大成鋼",
+      "price": 49.05,
+      "change_pct": -2.1,
+      "volume": 17941,
+      "net": 1470
+    },
+    {
+      "code": "8021",
+      "name": "尖點",
+      "price": 386,
+      "change_pct": -2.15,
+      "volume": 9774,
+      "net": 1401
+    },
+    {
+      "code": "4958",
+      "name": "臻鼎-KY",
+      "price": 430,
+      "change_pct": -6.72,
+      "volume": 27921,
+      "net": 1301
+    },
+    {
+      "code": "6531",
+      "name": "愛普*",
+      "price": 677,
+      "change_pct": -7.64,
+      "volume": 5199,
+      "net": 1187
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
+      "price": 101,
+      "change_pct": -2.88,
+      "volume": 106290,
+      "net": 1174
+    },
+    {
+      "code": "2603",
+      "name": "長榮",
+      "price": 251.5,
+      "change_pct": -2.33,
+      "volume": 7301,
+      "net": 1101
+    },
+    {
+      "code": "5871",
+      "name": "中租-KY",
+      "price": 102,
+      "change_pct": -3.77,
+      "volume": 8985,
+      "net": 1033
+    },
+    {
+      "code": "4938",
+      "name": "和碩",
+      "price": 92.2,
+      "change_pct": -4.16,
+      "volume": 8151,
+      "net": 1016
+    },
+    {
+      "code": "00878",
+      "name": "國泰永續高股息",
+      "price": 33,
+      "change_pct": -1.49,
+      "volume": 91590,
+      "net": 1000
+    },
+    {
+      "code": "2880",
+      "name": "華南金",
+      "price": 50.5,
+      "change_pct": 0.0,
+      "volume": 9315,
+      "net": 992
+    },
+    {
+      "code": "0056",
+      "name": "元大高股息",
+      "price": 52.35,
+      "change_pct": -1.51,
+      "volume": 38258,
+      "net": 944
+    },
+    {
+      "code": "009827",
+      "name": "玉山未來全球算力",
+      "price": 9.59,
+      "change_pct": -1.03,
+      "volume": 1147,
+      "net": 900
+    },
+    {
+      "code": "2308",
+      "name": "台達電",
+      "price": 1240,
+      "change_pct": -4.25,
+      "volume": 14791,
+      "net": 789
+    },
+    {
+      "code": "3711",
+      "name": "日月光投控",
+      "price": 586,
+      "change_pct": -5.02,
+      "volume": 22109,
+      "net": 748
+    },
+    {
+      "code": "2382",
+      "name": "廣達",
+      "price": 278.5,
+      "change_pct": -6.54,
+      "volume": 31415,
+      "net": 674
+    },
+    {
+      "code": "2368",
+      "name": "金像電",
+      "price": 975,
+      "change_pct": -7.14,
+      "volume": 10867,
+      "net": 603
+    },
+    {
+      "code": "2317",
+      "name": "鴻海",
+      "price": 240,
+      "change_pct": -0.83,
+      "volume": 27585,
+      "net": 600
+    },
+    {
+      "code": "3037",
+      "name": "欣興",
+      "price": 792,
+      "change_pct": -8.33,
+      "volume": 27426,
+      "net": 592
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "price": 3850,
+      "change_pct": -3.51,
+      "volume": 11996,
+      "net": 590
+    },
+    {
+      "code": "0052",
+      "name": "富邦科技",
+      "price": 58.2,
+      "change_pct": -2.76,
+      "volume": 35951,
+      "net": 550
+    },
+    {
+      "code": "6223",
+      "name": "旺矽",
+      "price": 4655,
+      "change_pct": 3.91,
+      "volume": 2435,
+      "net": 521
+    },
+    {
+      "code": "6805",
+      "name": "富世達",
+      "price": 1980,
+      "change_pct": -3.41,
+      "volume": 1544,
+      "net": 496
+    },
+    {
+      "code": "3017",
+      "name": "奇鋐",
+      "price": 2775,
+      "change_pct": -8.72,
+      "volume": 3881,
+      "net": 491
+    },
+    {
+      "code": "6147",
+      "name": "頎邦",
+      "price": 167.5,
+      "change_pct": -2.9,
+      "volume": 24376,
+      "net": 469
+    },
+    {
+      "code": "4904",
+      "name": "遠傳",
+      "price": 108,
+      "change_pct": 0.0,
+      "volume": 9372,
+      "net": 466
+    },
+    {
+      "code": "2301",
+      "name": "光寶科",
+      "price": 228,
+      "change_pct": -4.6,
+      "volume": 13468,
+      "net": 425
+    },
+    {
+      "code": "2356",
+      "name": "英業達",
+      "price": 46.6,
+      "change_pct": -8.98,
+      "volume": 38349,
+      "net": 416
+    },
+    {
+      "code": "2801",
+      "name": "彰銀",
+      "price": 28.4,
+      "change_pct": 0.35,
+      "volume": 19809,
+      "net": 393
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
+      "price": 127.5,
+      "change_pct": -6.59,
+      "volume": 76354,
+      "net": 336
+    },
+    {
+      "code": "2345",
+      "name": "智邦",
+      "price": 1525,
+      "change_pct": -3.17,
+      "volume": 4224,
+      "net": 327
+    },
+    {
+      "code": "3605",
+      "name": "宏致",
+      "price": 128,
+      "change_pct": -6.23,
+      "volume": 11807,
+      "net": 317
+    },
+    {
+      "code": "6271",
+      "name": "同欣電",
+      "price": 215,
+      "change_pct": 0.47,
+      "volume": 8590,
+      "net": 300
+    },
+    {
+      "code": "3265",
+      "name": "台星科",
+      "price": 154.5,
+      "change_pct": -6.93,
+      "volume": 2461,
+      "net": 294
+    },
+    {
+      "code": "6278",
+      "name": "台表科",
+      "price": 230,
+      "change_pct": -3.56,
+      "volume": 20840,
+      "net": 291
+    },
+    {
+      "code": "3653",
+      "name": "健策",
+      "price": 5605,
+      "change_pct": -9.96,
+      "volume": 3338,
+      "net": 289
+    },
+    {
+      "code": "5347",
+      "name": "世界",
+      "price": 132.5,
+      "change_pct": -4.33,
+      "volume": 10281,
+      "net": 278
+    },
+    {
+      "code": "6510",
+      "name": "精測",
+      "price": 3195,
+      "change_pct": 4.41,
+      "volume": 1298,
+      "net": 276
+    },
+    {
+      "code": "3045",
+      "name": "台灣大",
+      "price": 130,
+      "change_pct": 0.78,
+      "volume": 5309,
+      "net": 246
+    }
+  ],
+  "sell": [
+    {
+      "code": "2887",
+      "name": "台新新光金",
+      "price": 39.75,
+      "change_pct": -1.73,
+      "volume": 51870,
+      "net": -14755
+    },
+    {
+      "code": "2884",
+      "name": "玉山金",
+      "price": 47.2,
+      "change_pct": -0.84,
+      "volume": 26231,
+      "net": -8936
+    },
+    {
+      "code": "2885",
+      "name": "元大金",
+      "price": 71.9,
+      "change_pct": 0.98,
+      "volume": 40591,
+      "net": -7288
+    },
+    {
+      "code": "2883",
+      "name": "凱基金",
+      "price": 35.35,
+      "change_pct": -1.53,
+      "volume": 31901,
+      "net": -5991
+    },
+    {
+      "code": "6770",
+      "name": "力積電",
+      "price": 56.1,
+      "change_pct": -4.1,
+      "volume": 130229,
+      "net": -4986
+    },
+    {
+      "code": "2408",
+      "name": "南亞科",
+      "price": 379.5,
+      "change_pct": -3.68,
+      "volume": 59023,
+      "net": -4943
+    },
+    {
+      "code": "2327",
+      "name": "國巨*",
+      "price": 407,
+      "change_pct": -4.12,
+      "volume": 36294,
+      "net": -4656
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
+      "price": 667,
+      "change_pct": -9.99,
+      "volume": 8473,
+      "net": -3752
+    },
+    {
+      "code": "2886",
+      "name": "兆豐金",
+      "price": 54.4,
+      "change_pct": 0.37,
+      "volume": 20046,
+      "net": -2508
+    },
+    {
+      "code": "2637",
+      "name": "慧洋-KY",
+      "price": 95.3,
+      "change_pct": -2.06,
+      "volume": 2995,
+      "net": -2030
+    },
+    {
+      "code": "2492",
+      "name": "華新科",
+      "price": 272,
+      "change_pct": -5.56,
+      "volume": 32555,
+      "net": -1706
+    },
+    {
+      "code": "3211",
+      "name": "順達",
+      "price": 249,
+      "change_pct": -4.41,
+      "volume": 2235,
+      "net": -1363
+    },
+    {
+      "code": "6669",
+      "name": "緯穎",
+      "price": 1570,
+      "change_pct": -6.55,
+      "volume": 4386,
+      "net": -1111
+    },
+    {
+      "code": "2412",
+      "name": "中華電",
+      "price": 162,
+      "change_pct": 0.62,
+      "volume": 5622,
+      "net": -958
+    },
+    {
+      "code": "2347",
+      "name": "聯強",
+      "price": 76.6,
+      "change_pct": -3.16,
+      "volume": 5566,
+      "net": -767
+    },
+    {
+      "code": "4979",
+      "name": "華星光",
+      "price": 375,
+      "change_pct": -5.3,
+      "volume": 9529,
+      "net": -592
+    },
+    {
+      "code": "2313",
+      "name": "華通",
+      "price": 196,
+      "change_pct": 1.82,
+      "volume": 56725,
+      "net": -586
+    },
+    {
+      "code": "2615",
+      "name": "萬海",
+      "price": 107,
+      "change_pct": -3.6,
+      "volume": 14414,
+      "net": -517
+    },
+    {
+      "code": "3376",
+      "name": "新日興",
+      "price": 109.5,
+      "change_pct": -5.6,
+      "volume": 5039,
+      "net": -510
+    },
+    {
+      "code": "6274",
+      "name": "台燿",
+      "price": 956,
+      "change_pct": -9.81,
+      "volume": 15018,
+      "net": -489
+    },
+    {
+      "code": "2395",
+      "name": "研華",
+      "price": 603,
+      "change_pct": -1.47,
+      "volume": 2724,
+      "net": -483
+    },
+    {
+      "code": "1301",
+      "name": "台塑",
+      "price": 68.3,
+      "change_pct": -2.71,
+      "volume": 29538,
+      "net": -441
+    },
+    {
+      "code": "2360",
+      "name": "致茂",
+      "price": 1420,
+      "change_pct": 3.65,
+      "volume": 3343,
+      "net": -419
+    },
+    {
+      "code": "6488",
+      "name": "環球晶",
+      "price": 622,
+      "change_pct": -2.05,
+      "volume": 15036,
+      "net": -405
+    },
+    {
+      "code": "6187",
+      "name": "萬潤",
+      "price": 950,
+      "change_pct": -6.4,
+      "volume": 2227,
+      "net": -330
+    },
+    {
+      "code": "2436",
+      "name": "偉詮電",
+      "price": 53.9,
+      "change_pct": -1.64,
+      "volume": 2714,
+      "net": -324
+    },
+    {
+      "code": "3450",
+      "name": "聯鈞",
+      "price": 353.5,
+      "change_pct": -4.97,
+      "volume": 5605,
+      "net": -318
+    },
+    {
+      "code": "5876",
+      "name": "上海商銀",
+      "price": 52.6,
+      "change_pct": 1.54,
+      "volume": 4455,
+      "net": -306
+    },
+    {
+      "code": "5469",
+      "name": "瀚宇博",
+      "price": 76.4,
+      "change_pct": -0.13,
+      "volume": 3019,
+      "net": -289
+    },
+    {
+      "code": "2455",
+      "name": "全新",
+      "price": 377,
+      "change_pct": -1.95,
+      "volume": 2763,
+      "net": -286
+    },
+    {
+      "code": "2006",
+      "name": "東和鋼鐵",
+      "price": 85.9,
+      "change_pct": -0.58,
+      "volume": 797,
+      "net": -280
+    },
+    {
+      "code": "3532",
+      "name": "台勝科",
+      "price": 291,
+      "change_pct": -3.96,
+      "volume": 1908,
+      "net": -239
+    },
+    {
+      "code": "8046",
+      "name": "南電",
+      "price": 972,
+      "change_pct": -10.0,
+      "volume": 12194,
+      "net": -220
+    },
+    {
+      "code": "2404",
+      "name": "漢唐",
+      "price": 970,
+      "change_pct": -2.41,
+      "volume": 718,
+      "net": -182
+    },
+    {
+      "code": "6584",
+      "name": "南俊國際",
+      "price": 303.5,
+      "change_pct": -6.47,
+      "volume": 815,
+      "net": -143
+    },
+    {
+      "code": "6782",
+      "name": "視陽",
+      "price": 279,
+      "change_pct": -1.24,
+      "volume": 351,
+      "net": -139
+    },
+    {
+      "code": "2892",
+      "name": "第一金",
+      "price": 42.7,
+      "change_pct": 1.3,
+      "volume": 19110,
+      "net": -139
+    },
+    {
+      "code": "3026",
+      "name": "禾伸堂",
+      "price": 505,
+      "change_pct": -9.98,
+      "volume": 16591,
+      "net": -116
+    },
+    {
+      "code": "2606",
+      "name": "裕民",
+      "price": 70.4,
+      "change_pct": -0.85,
+      "volume": 1543,
+      "net": -77
+    },
+    {
+      "code": "2428",
+      "name": "興勤",
+      "price": 181.5,
+      "change_pct": -5.22,
+      "volume": 654,
+      "net": -60
+    },
+    {
+      "code": "1519",
+      "name": "華城",
+      "price": 479,
+      "change_pct": -7.17,
+      "volume": 2969,
+      "net": -60
+    },
+    {
+      "code": "2497",
+      "name": "怡利電",
+      "price": 35.45,
+      "change_pct": -3.27,
+      "volume": 376,
+      "net": -50
+    },
+    {
+      "code": "8210",
+      "name": "勤誠",
+      "price": 601,
+      "change_pct": -0.99,
+      "volume": 3244,
+      "net": -50
+    },
+    {
+      "code": "6121",
+      "name": "新普",
+      "price": 306,
+      "change_pct": -2.39,
+      "volume": 996,
+      "net": -48
+    },
+    {
+      "code": "4991",
+      "name": "環宇-KY",
+      "price": 347,
+      "change_pct": -2.8,
+      "volume": 3235,
+      "net": -48
+    },
+    {
+      "code": "3406",
+      "name": "玉晶光",
+      "price": 980,
+      "change_pct": -1.51,
+      "volume": 11195,
+      "net": -44
+    },
+    {
+      "code": "3044",
+      "name": "健鼎",
+      "price": 534,
+      "change_pct": 2.69,
+      "volume": 11510,
+      "net": -44
+    },
+    {
+      "code": "3363",
+      "name": "上詮",
+      "price": 383,
+      "change_pct": -6.59,
+      "volume": 4855,
+      "net": -41
+    },
+    {
+      "code": "2481",
+      "name": "強茂",
+      "price": 119.5,
+      "change_pct": -4.78,
+      "volume": 6276,
+      "net": -39
+    },
+    {
+      "code": "1560",
+      "name": "中砂",
+      "price": 701,
+      "change_pct": -4.88,
+      "volume": 1725,
+      "net": -37
+    }
+  ],
+  "xlsx": "output/投信買賣超數據_2026-11-11.xlsx"
+}
